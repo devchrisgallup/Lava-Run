@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Chris Gallup</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<script src="js/phaser.js"></script>
+<script src="js/Boot.js"></script>
+<script src="js/Preloader.js"></script>
+<script src="js/Level1.js"></script>
+<meta name="viewport" content="initial-scale=1">
+</head>
+<body>
+<script type="text/javascript">
+    window.onload = function() {
+
+        var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, ""); 
+
+        game.state.add("Boot", Game.Boot); 
+        game.state.add("Preloader", Game.Preloader); 
+        game.state.add("MainMenu", Game.MainMenu); 
+        game.state.add("Level1", Game.Level1); 
+        game.state.start("Boot"); 
+        document.querySelector("body").addEventListener("touchstart", touchStart, false); 
+        document.querySelector("body").addEventListener("click", touchStart, false);
+    }; 
+</script>
+</body>
+</html>
