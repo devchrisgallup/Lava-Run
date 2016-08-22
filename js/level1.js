@@ -13,6 +13,7 @@ var shootTime = 0;
 var nuts; 
 var score = 0;
 var burstFlag = false;  
+var scoreText;
 this.burst;
 this.playerX = 0;  
 
@@ -40,6 +41,9 @@ Game.Level1.prototype = {
         this.physics.arcade.enable(player); 
         this.camera.follow(player); 
         player.body.collideWorldBounds = true; 
+        // use this.game.height for a responsive design
+        scoreText = game.add.text(0,this.game.height - 35,"Score: ", {font: '32px Arial', fill:  '#fff'});
+        scoreText.fixedToCamera = true; 
 
         controls = {
             right: this.input.keyboard.addKey(Phaser.Keyboard.D),
