@@ -11,9 +11,10 @@ var rightButton;
 var running = true; 
 var shootTime = 0; 
 var nuts; 
-var score = 0;
 var burstFlag = false;  
-var scoreText;
+var livesText;
+var lives = 3;
+var gameOverText;  
 this.burst;
 this.playerX = 0;  
 
@@ -73,6 +74,8 @@ Game.Level1.prototype = {
         this.physics.arcade.collide(player, layer);
 
         player.body.velocity.x = 0; 
+        
+        livesText.text = "Lives: " + lives;
 
         if (controls.right.isDown) {
             player.animations.play("run");
@@ -110,7 +113,13 @@ Game.Level1.prototype = {
     },
 
     resetPlayer: function() {
+        lives--;
         player.reset(100, 1100); 
+        if (lives === 0) {
+            player.kill();
+            gameOverText = this.game.add.text(0, this.game.height - 65, "Game Over", {font: '32px Arial', fill:  '#fff'});
+            gameOverText.fixedToCamera = true;
+        }
     }, 
 
     getCoin: function() {
