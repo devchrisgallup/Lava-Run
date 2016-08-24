@@ -146,7 +146,7 @@ Game.Level1.prototype = {
             }
         }
     },
-    // particles effects settings
+    // coin particles effects settings
     buildEmitter: function() {
         this.burst = this.add.emitter(0, 0, 80); 
         this.burst.minParticleScale = 0.3; 
