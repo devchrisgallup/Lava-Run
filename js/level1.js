@@ -45,8 +45,8 @@ Game.Level1.prototype = {
         this.camera.follow(player); 
         player.body.collideWorldBounds = true; 
         // use this.game.height for a responsive design
-        scoreText = game.add.text(0,this.game.height - 35,"Score: ", {font: '32px Arial', fill:  '#fff'});
-        scoreText.fixedToCamera = true; 
+        livesText = game.add.text(0,this.game.height - 35,"Score: ", {font: '32px Arial', fill:  '#fff'});
+        livesText.fixedToCamera = true; 
 
         controls = {
             right: this.input.keyboard.addKey(Phaser.Keyboard.D),
