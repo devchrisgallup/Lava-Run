@@ -32,7 +32,8 @@ Game.Preloader.prototype = {
         this.load.image("nut", "assets/bullet.png");
 
         // particle effects
-        this.load.image("explosion", "assets/explosion.png"); 
+        this.load.image("explosion", "assets/explosion.png");
+        this.load.image("fireParticles", "assets/fireParticles.png");
 
         
     }, 
