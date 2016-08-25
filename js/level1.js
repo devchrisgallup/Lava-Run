@@ -11,11 +11,13 @@ var rightButton;
 var running = true; 
 var shootTime = 0; 
 var nuts; 
-var burstFlag = false;  
+var burstFlag = false;
+var fallInToLava = false; 
 var livesText;
 var lives = 3;
-var gameOverText;  
+var gameOverText; 
 this.burst;
+this.fireBurst;
 this.playerX = 0;  
 
 
@@ -65,11 +67,13 @@ Game.Level1.prototype = {
         nuts.setAll("checkWorldBounds", true); 
 
         this.buildEmitter();
+        this.fireBuildEmitter();
     }, 
 
     update: function () {
 
         burstFlag = false; 
+        fallInToLava = false;
 
         this.physics.arcade.collide(player, layer);
 
@@ -110,11 +114,23 @@ Game.Level1.prototype = {
             this.burst.y = player.y; 
             this.burst.start(true, 1000, null, 10);
         } 
+
+        if (fallInToLava) {
+            this.fireBurst.x = player.x; 
+            this.fireBurst.y = player.y; 
+            this.fireBurst.start(true, 1000, null, 10);
+        } 
     },
 
     resetPlayer: function() {
-        lives--;
-        player.reset(100, 1100); 
+        fallInToLava = true;
+        player.kill();
+        setTimeout(
+                function() {
+                    lives--;
+                    player.reset(0, 1100);
+                }, 2000);
+ 
         if (lives === 0) {
             player.kill();
             gameOverText = this.game.add.text(0, this.game.height - 65, "Game Over", {font: '32px Arial', fill:  '#fff'});
@@ -155,7 +171,15 @@ Game.Level1.prototype = {
         this.burst.maxParticleSpeed.setTo(30, -30); 
         this.burst.makeParticles("explosion");
     },
-
+    // fire particles effects settings
+    fireBuildEmitter: function() {
+        this.fireBurst = this.add.emitter(0, 0, 80); 
+        this.fireBurst.minParticleScale = 0.3; 
+        this.fireBurst.maxParticleScale = 1.2; 
+        this.fireBurst.minParticleSpeed.setTo(-30, 30); 
+        this.fireBurst.maxParticleSpeed.setTo(30, -30); 
+        this.fireBurst.makeParticles("fireParticles");
+    },
 }
 function checkOverlap(spriteA, spriteB) {
     var boundsA = spriteA.getBounds(); 
