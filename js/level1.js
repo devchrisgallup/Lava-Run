@@ -4,7 +4,7 @@ var map;
 var layer;
 var player; 
 var controls = {}; 
-var playerSpeed = 108; 
+var playerSpeed = 88; 
 var jumpTimer = 0; 
 var button; 
 var rightButton; 
@@ -142,7 +142,12 @@ Game.Level1.prototype = {
         map.putTile(-1, layer.getTileX(player.x), layer.getTileY(player.y));
         // runs the particles burst.start function that is inside of a 
         // if statement in the update loop
-        burstFlag = true;  
+        burstFlag = true; 
+        // speed boost
+        playerSpeed += 21;
+        this.time.events.add(Phaser.Timer.SECOND * 0.5, function() {
+            playerSpeed -= 21; 
+        });
     }, 
     speedBoost: function() {
         map.putTile(-1, layer.getTileX(player.x), layer.getTileY(player.y));
