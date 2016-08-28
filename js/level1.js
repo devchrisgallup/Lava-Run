@@ -128,7 +128,7 @@ Game.Level1.prototype = {
         setTimeout(
                 function() {
                     lives--;
-                    player.reset(0, 1100);
+                    player.reset(player.x - 800, player.y - 100);
                 }, 2000);
  
         if (lives === 0) {
