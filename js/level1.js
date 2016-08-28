@@ -30,6 +30,12 @@ Game.Level1.prototype = {
         map.addTilesetImage("tileset"); 
         layer = map.createLayer(0); 
         layer.resizeWorld();
+        
+        // Create a custom timer
+        timer = game.time.create();
+        
+        // Create a delayed event 3 seconds from now
+        timerEvent = timer.add(Phaser.Timer.MINUTE * 0 + Phaser.Timer.SECOND * 3, this.endTimer, this);
 
        // variables used in level
         map.setCollisionBetween(0,0); 
@@ -123,10 +129,12 @@ Game.Level1.prototype = {
     },
 
     resetPlayer: function() {
+        timer.start();
         fallInToLava = true;
         player.kill();
         setTimeout(
                 function() {
+                    timer.stop();
                     lives--;
                     player.reset(player.x - 800, player.y - 100);
                 }, 2000);
@@ -185,6 +193,19 @@ Game.Level1.prototype = {
         this.fireBurst.maxParticleSpeed.setTo(30, -30); 
         this.fireBurst.makeParticles("fireParticles");
     },
+    render: function () {
+        if (timer.running) {
+            this.game.debug.text(this.formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)), 35, this.game.height - 30, "#fff");
+        }
+    },
+    endTimer: function() {
+        timer.stop();
+    },
+    formatTime: function(s) {
+        var minutes = "0" + Math.floor(s / 60);
+        var seconds = "0" + (s - minutes * 60);
+        return minutes.substr(-2) + ":" + seconds.substr(-2);   
+    }
 }
 function checkOverlap(spriteA, spriteB) {
     var boundsA = spriteA.getBounds(); 
