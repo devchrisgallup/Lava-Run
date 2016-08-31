@@ -189,8 +189,8 @@ Game.Level1.prototype = {
         this.fireBurst = this.add.emitter(0, 0, 80); 
         this.fireBurst.minParticleScale = 0.3; 
         this.fireBurst.maxParticleScale = 1.2; 
-        this.fireBurst.minParticleSpeed.setTo(-30, 30); 
-        this.fireBurst.maxParticleSpeed.setTo(30, -30); 
+        this.fireBurst.minParticleSpeed.setTo(-100, 100); 
+        this.fireBurst.maxParticleSpeed.setTo(100, -100); 
         this.fireBurst.makeParticles("fireParticles");
     },
     render: function () {
