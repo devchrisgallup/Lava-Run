@@ -34,6 +34,9 @@ Game.Preloader.prototype = {
         // particle effects
         this.load.image("explosion", "assets/explosion.png");
         this.load.image("fireParticles", "assets/fireParticles.png");
+        
+        // sound effects
+        this.load.audio("playerdiedsound", "assets/playerdiedsound.wav");
 
         
     }, 
