@@ -16,6 +16,7 @@ var fallInToLava = false;
 var livesText;
 var lives = 3;
 var gameOverText; 
+var playerDiedSound; 
 this.burst;
 this.fireBurst;
 this.playerX = 0;  
@@ -33,6 +34,9 @@ Game.Level1.prototype = {
         
         // Create a custom timer
         timer = game.time.create();
+        
+        // sound effects
+        playerDiedSound = this.game.add.audio("playerdiedsound");
         
         // Create a delayed event 3 seconds from now
         timerEvent = timer.add(Phaser.Timer.MINUTE * 0 + Phaser.Timer.SECOND * 3, this.endTimer, this);
@@ -129,6 +133,7 @@ Game.Level1.prototype = {
     },
 
     resetPlayer: function() {
+        playerDiedSound.play();
         timer.start();
         fallInToLava = true;
         player.kill();
