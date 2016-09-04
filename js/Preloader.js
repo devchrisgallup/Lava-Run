@@ -37,6 +37,7 @@ Game.Preloader.prototype = {
         
         // sound effects
         this.load.audio("playerdiedsound", "assets/playerdiedsound.wav");
+        this.load.audio("splash", "assets/splash.wav");
 
         
     }, 
