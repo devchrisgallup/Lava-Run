@@ -25,7 +25,7 @@ this.playerX = 0;
 
 Game.Level1.prototype = {
     create:function (game) {
-        this.stage.backgroundColor = "#3399FF"; 
+        this.stage.backgroundColor = "#00B2FF"; 
         game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.physics.arcade.gravity.y = 1400; 
         map = this.add.tilemap("map", 64, 64); 
