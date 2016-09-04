@@ -17,6 +17,7 @@ var livesText;
 var lives = 3;
 var gameOverText; 
 var playerDiedSound; 
+var playerDiedSound;
 this.burst;
 this.fireBurst;
 this.playerX = 0;  
@@ -37,6 +38,7 @@ Game.Level1.prototype = {
         
         // sound effects
         playerDiedSound = this.game.add.audio("playerdiedsound");
+        splash = this.game.add.audio("splash");
         
         // Create a delayed event 3 seconds from now
         timerEvent = timer.add(Phaser.Timer.MINUTE * 0 + Phaser.Timer.SECOND * 3, this.endTimer, this);
@@ -152,6 +154,7 @@ Game.Level1.prototype = {
     }, 
 
     getCoin: function() {
+        splash.play();
         map.putTile(-1, layer.getTileX(player.x), layer.getTileY(player.y));
         // runs the particles burst.start function that is inside of a 
         // if statement in the update loop
