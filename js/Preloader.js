@@ -36,6 +36,7 @@ Game.Preloader.prototype = {
         this.load.image("fireParticles", "assets/fireParticles.png");
         
         // sound effects
+        this.load.audio("mainmusic", "assets/mainmusic.mp3");
         this.load.audio("playerdiedsound", "assets/playerdiedsound.wav");
         this.load.audio("splash", "assets/splash.wav");
 
