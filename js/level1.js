@@ -17,7 +17,8 @@ var livesText;
 var lives = 3;
 var gameOverText; 
 var playerDiedSound; 
-var playerDiedSound;
+var mainMusic;
+var splash;
 this.burst;
 this.fireBurst;
 this.playerX = 0;  
@@ -39,6 +40,9 @@ Game.Level1.prototype = {
         // sound effects
         playerDiedSound = this.game.add.audio("playerdiedsound");
         splash = this.game.add.audio("splash");
+        mainMusic = this.game.add.audio("mainmusic");
+        mainMusic.volume = 0.3;
+        mainMusic.play();
         
         // Create a delayed event 3 seconds from now
         timerEvent = timer.add(Phaser.Timer.MINUTE * 0 + Phaser.Timer.SECOND * 3, this.endTimer, this);
