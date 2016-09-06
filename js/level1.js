@@ -41,7 +41,7 @@ Game.Level1.prototype = {
         playerDiedSound = this.game.add.audio("playerdiedsound");
         splash = this.game.add.audio("splash");
         mainMusic = this.game.add.audio("mainmusic");
-        mainMusic.volume = 0.3;
+        mainMusic.volume = 0.2;
         mainMusic.play();
         
         // Create a delayed event 3 seconds from now
