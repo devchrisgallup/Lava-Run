@@ -4,7 +4,8 @@ var map;
 var layer;
 var player; 
 var controls = {}; 
-var playerSpeed = 88; 
+var playerSpeed = 88;
+var playerJumpCount = 0;
 var jumpTimer = 0; 
 var button; 
 var rightButton; 
@@ -229,8 +230,21 @@ function checkOverlap(spriteA, spriteB) {
 function touchStart(evt) {
     evt.preventDefault(); 
         if(player.body.onFloor() || player.body.touching.down && this.now > jumpTimer) {
+            playerJumpCount++;
             player.body.velocity.y = -600; 
             jumpTimer +=  750; 
             player.animations.play("jump"); 
-        }  
+        } else if(playerJumpCount < 2) {
+            playerJumpCount++;
+            player.body.velocity.y = -400; 
+            jumpTimer +=  750; 
+            player.animations.play("jump");            
+        } 
+        // reset playerJumpCount to 0 after a 1/10 of a second
+        if(playerJumpCount > 2) {
+        setTimeout(function() {
+                    playerJumpCount = 0; 
+                }, 100);
+                console.log(playerJumpCount);
+        } 
 }
