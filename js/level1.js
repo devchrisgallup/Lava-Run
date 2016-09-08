@@ -20,6 +20,7 @@ var gameOverText;
 var playerDiedSound; 
 var mainMusic;
 var splash;
+var jump;
 this.burst;
 this.fireBurst;
 this.playerX = 0;  
@@ -41,6 +42,7 @@ Game.Level1.prototype = {
         // sound effects
         playerDiedSound = this.game.add.audio("playerdiedsound");
         splash = this.game.add.audio("splash");
+        jump = this.game.add.audio("jump");
         mainMusic = this.game.add.audio("mainmusic");
         mainMusic.volume = 0.2;
         mainMusic.play();
@@ -230,11 +232,13 @@ function checkOverlap(spriteA, spriteB) {
 function touchStart(evt) {
     evt.preventDefault(); 
         if(player.body.onFloor() || player.body.touching.down && this.now > jumpTimer) {
+            jump.play();
             playerJumpCount++;
             player.body.velocity.y = -600; 
             jumpTimer +=  750; 
             player.animations.play("jump"); 
         } else if(playerJumpCount < 2) {
+            jump.play();
             playerJumpCount++;
             player.body.velocity.y = -400; 
             jumpTimer +=  750; 
