@@ -21,6 +21,7 @@ var playerDiedSound;
 var mainMusic;
 var splash;
 var jump;
+var boost;
 this.burst;
 this.fireBurst;
 this.playerX = 0;  
@@ -43,6 +44,8 @@ Game.Level1.prototype = {
         playerDiedSound = this.game.add.audio("playerdiedsound");
         splash = this.game.add.audio("splash");
         jump = this.game.add.audio("jump");
+        jump.volume = 0.2;
+        boost = this.game.add.audio("boost");
         mainMusic = this.game.add.audio("mainmusic");
         mainMusic.volume = 0.2;
         mainMusic.play();
@@ -173,6 +176,7 @@ Game.Level1.prototype = {
         });
     }, 
     speedBoost: function() {
+        boost.play();
         map.putTile(-1, layer.getTileX(player.x), layer.getTileY(player.y));
         playerSpeed += 50;
 
