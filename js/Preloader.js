@@ -40,6 +40,7 @@ Game.Preloader.prototype = {
         this.load.audio("playerdiedsound", "assets/playerdiedsound.wav");
         this.load.audio("splash", "assets/splash.wav");
         this.load.audio("jump", "assets/jump.wav");
+        this.load.audio("boost", "assets/boost.wav");
         
     }, 
 
