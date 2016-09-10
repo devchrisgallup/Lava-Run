@@ -116,6 +116,7 @@ Game.Level1.prototype = {
         }
 
         if (controls.up.isDown && (player.body.onFloor() || player.body.touching.down && this.now > jumpTimer)) {
+            jump.play();
             player.body.velocity.y = -600; 
             jumpTimer = this.time.now + 750; 
             player.animations.play("jump"); 
