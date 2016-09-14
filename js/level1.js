@@ -145,24 +145,26 @@ Game.Level1.prototype = {
         } 
     },
 
-    resetPlayer: function() {
-        playerDiedSound.play();
-        timer.start();
-        fallInToLava = true;
-        player.kill();
-        setTimeout(
-                function() {
-                    timer.stop();
-                    lives--;
-                    player.reset(player.x - 800, player.y - 100);
-                }, 2000);
- 
-        if (lives === 0) {
+    resetPlayer: function() { 
+        if (lives > 0) {
+            playerDiedSound.play();
+            timer.start();
+            fallInToLava = true;
+            player.kill();
+            setTimeout(
+                    function() {
+                        timer.stop();
+                        lives--;
+                        player.reset(player.x - 800, player.y - 100);
+                    }, 2000);
+        } else {
+            playerDiedSound.play();
+            fallInToLava = true;
             player.kill();
             gameOverText = this.game.add.text(0, this.game.height - 65, "Game Over", {font: '32px Arial', fill:  '#fff'});
             gameOverText.fixedToCamera = true;
         }
-    }, 
+    },
 
     getCoin: function() {
         splash.play();
