@@ -74,7 +74,6 @@ Game.Level1.prototype = {
         scoreText = game.add.text(0,this.game.height - 70,"Score: ", {font: '32px Arial', fill:  '#fff'});
         scoreText.fixedToCamera = true; 
 
-
         controls = {
             right: this.input.keyboard.addKey(Phaser.Keyboard.D),
             left: this.input.keyboard.addKey(Phaser.Keyboard.A),
