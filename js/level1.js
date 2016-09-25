@@ -16,6 +16,8 @@ var burstFlag = false;
 var fallInToLava = false; 
 var livesText;
 var lives = 3;
+var scoreText; 
+var score = 0; 
 var gameOverText; 
 var playerDiedSound; 
 var mainMusic;
@@ -69,6 +71,9 @@ Game.Level1.prototype = {
         // use this.game.height for a responsive design
         livesText = game.add.text(0,this.game.height - 35,"Score: ", {font: '32px Arial', fill:  '#fff'});
         livesText.fixedToCamera = true; 
+        scoreText = game.add.text(0,this.game.height - 70,"Score: ", {font: '32px Arial', fill:  '#fff'});
+        scoreText.fixedToCamera = true; 
+
 
         controls = {
             right: this.input.keyboard.addKey(Phaser.Keyboard.D),
@@ -102,6 +107,7 @@ Game.Level1.prototype = {
         player.body.velocity.x = 0; 
         
         livesText.text = "Lives: " + lives;
+        scoreText.text = "Score: " + score;
 
         if (controls.right.isDown) {
             player.animations.play("run");
@@ -175,6 +181,7 @@ Game.Level1.prototype = {
         // speed boost
         playerSpeed += 21;
         this.time.events.add(Phaser.Timer.SECOND * 0.5, function() {
+            score++; 
             playerSpeed -= 21; 
         });
     }, 
