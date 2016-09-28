@@ -250,7 +250,8 @@ function touchStart(evt) {
             player.body.velocity.y = -600; 
             jumpTimer +=  750; 
             player.animations.play("jump"); 
-        } else if(playerJumpCount < 2) {
+        } else if(playerJumpCount < 2 && score > 0) {
+            score--;
             jump.play();
             playerJumpCount++;
             player.body.velocity.y = -400; 
