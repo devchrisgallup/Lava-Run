@@ -61,7 +61,7 @@ Game.Level1.prototype = {
         map.setTileIndexCallback(1, this.resetPlayer, this); 
         map.setTileIndexCallback(2, this.getCoin, this); 
         map.setTileIndexCallback(7, this.speedBoost, this); 
-        player = this.add.sprite(100, 1100, "player"); 
+        player = this.add.sprite(100, 1150, "player"); 
         player.anchor.setTo(0.5, 0.5);  
         player.animations.add("jump",[2], 1, true); 
         player.animations.add("run",[3,4,5,6,7,8], 7, true); 
