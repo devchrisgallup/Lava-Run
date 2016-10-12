@@ -205,7 +205,7 @@ Game.Level1.prototype = {
     },
     // coin particles effects settings
     buildEmitter: function() {
-        this.burst = this.add.emitter(0, 0, 80); 
+        this.burst = this.add.emitter(0, 0, 60); 
         this.burst.minParticleScale = 0.3; 
         this.burst.maxParticleScale = 1.2; 
         this.burst.minParticleSpeed.setTo(-30, 30); 
@@ -214,7 +214,7 @@ Game.Level1.prototype = {
     },
     // fire particles effects settings
     fireBuildEmitter: function() {
-        this.fireBurst = this.add.emitter(0, 0, 80); 
+        this.fireBurst = this.add.emitter(0, 0, 60); 
         this.fireBurst.minParticleScale = 0.3; 
         this.fireBurst.maxParticleScale = 1.2; 
         this.fireBurst.minParticleSpeed.setTo(-100, 100); 
