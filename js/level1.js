@@ -166,7 +166,7 @@ Game.Level1.prototype = {
             playerDiedSound.play();
             fallInToLava = true;
             player.kill();
-            gameOverText = this.game.add.text(0, this.game.height - 65, "Game Over", {font: '32px Arial', fill:  '#fff'});
+            gameOverText = this.game.add.text(0, this.game.height - 100, "Game Over", {font: '32px Arial', fill:  '#fff'});
             gameOverText.fixedToCamera = true;
         }
     },
