@@ -258,11 +258,11 @@ function touchStart(evt) {
             jumpTimer +=  750; 
             player.animations.play("jump");            
         } 
-        // reset playerJumpCount to 0 after a 1/10 of a second
+        // reset playerJumpCount to 0 after a 1.5/10 of a second
         if(playerJumpCount > 2) {
         setTimeout(function() {
                     playerJumpCount = 0; 
-                }, 100);
+                }, 150);
                 console.log(playerJumpCount);
         } 
 }
