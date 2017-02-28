@@ -12,7 +12,7 @@ There is a little bit of setting up to do before you are able to run the game.  
           Jump: Click left mouse or touch screen if on mobile device
 
 ## Play 
-http://chrisgalluptest.info/
+http://chrisgalluptest.info/lavaboy/index.html
 
 ## Credit
 Many thanks to Wild for his Game Development YouTube Channel.
