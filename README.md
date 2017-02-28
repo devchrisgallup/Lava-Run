@@ -3,8 +3,6 @@ mobile game
 
 This is a side scrolling game with mobile gameplay in mind.  The game was developed with the Phaser.io Framework. 
 
-![jump](https://cloud.githubusercontent.com/assets/19313175/17739026/47b137ca-6459-11e6-886a-be58b654d259.PNG)
-
 This game is in the early stages of development.  
 
 #Setup
